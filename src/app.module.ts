@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from '../prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
-import { ContentController } from 'layer/controllers/content.controller';
-import { ContentService } from 'layer/services/content.service';
+import { ContentController } from './layer/controllers/content.controller';
+import { ContentService } from './layer/services/content.service';
 
 @Module({
   imports: [
