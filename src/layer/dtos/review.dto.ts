@@ -10,6 +10,11 @@ export class CreateReviewDto {
   @IsString({ message: 'review_text는 문자열이어야 합니다.' })
   @IsNotEmpty({ message: 'review_text는 비워둘 수 없습니다.' })
   readonly review_text!: string;
+
+  @ApiProperty({ example: 5, description: '별점 (1~5)', minimum: 1, maximum: 5 })
+  @IsInt({ message: 'rating은 정수여야 합니다.' })
+  @IsNotEmpty({ message: 'rating은 필수입니다.' })
+  readonly rating!: number;
 }
 
 export class UpdateReviewDto {
@@ -17,6 +22,11 @@ export class UpdateReviewDto {
   @IsString({ message: 'review_text는 문자열이어야 합니다.' })
   @IsOptional()
   review_text?: string;
+
+  @ApiProperty({ example: 4, description: '변경할 별점 (1~5)', required: false, minimum: 1, maximum: 5 })
+  @IsInt({ message: 'rating은 정수여야 합니다.' })
+  @IsOptional()
+  rating?: number;
 }
 
 export class ReviewResponseDto {
@@ -28,6 +38,9 @@ export class ReviewResponseDto {
 
   @ApiProperty({ example: '이 영화 정말 감동적이었어요!', description: '리뷰 내용' })
   review_text!: string;
+
+  @ApiProperty({ example: 5, description: '별점 (1~5)' })
+  rating!: number;
 
   @ApiProperty({ example: new Date().toISOString(), description: '리뷰 생성 날짜' })
   created_at!: Date;
