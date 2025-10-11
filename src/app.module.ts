@@ -15,6 +15,7 @@ import { BookmarkModule } from './layer/modules/bookmark.module';
 import { SummaryModule } from './layer/modules/summary.module';
 import { HighlightModule } from './layer/modules/highlight.module';
 import { OnboardingModule } from './layer/modules/onboarding.module';
+import { ProfileModule } from './layer/modules/profile.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { OnboardingModule } from './layer/modules/onboarding.module';
     SummaryModule,
     HighlightModule,
     OnboardingModule,
+    ProfileModule, 
   ],
   controllers: [AppController, ContentController, ReviewController],
   providers: [AppService, ContentService, ReviewService, ReviewRepository],
